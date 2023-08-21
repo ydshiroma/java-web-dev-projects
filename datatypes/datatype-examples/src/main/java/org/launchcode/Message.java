@@ -6,10 +6,12 @@ public class Message {
 
         if (lang.equals("sp")) {
             return "¡Hola, Mundo!";
+        } else if (lang.equals("help")) {
+            return "Help me";
         } else if (lang.equals("fr")) {
             return "Bonjour, le monde!";
         } else {
-            return "Hello, World!";
+            return "Hello, world!";
         }
     }
 }
