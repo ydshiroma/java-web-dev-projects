@@ -20,14 +20,27 @@ public class BalancedBrackets {
      * @return true if balanced, false otherwise
      */
     public static boolean hasBalancedBrackets(String str) {
-        int brackets = 0;
+        int openBrackets = 0;
+        int closeBrackets = 0;
+        boolean bracketsOpened = false;
         for (char ch : str.toCharArray()) {
             if (ch == '[') {
-                brackets++;
+                bracketsOpened = true;
+                openBrackets++;
             } else if (ch == ']') {
-                brackets--;
+                if (bracketsOpened == false) {
+                    return false;
+                }
+                closeBrackets++;
+                bracketsOpened = false;
             }
         }
-        return brackets == 0;
+
+        if (openBrackets == 0) {
+            return false;
+        } else {
+            return openBrackets == closeBrackets;
+        }
+
     }
 }
